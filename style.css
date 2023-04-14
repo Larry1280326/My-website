@@ -5,7 +5,7 @@
 }
 
 img {
-     height:auto; max-width: 100%;
+     height:auto; max-width: 200px;
      object-fit: cover;
      float: right;
      margin: 10px;
@@ -23,6 +23,8 @@ img {
      height: 48px;
      margin-top: 20px;
      font-family: "Comic Sans MS", "Comic Sans", cursive;
+     font-size: 20px;
+     font-weight: bold;
 }
 
 .accordion-item summary::marker{
