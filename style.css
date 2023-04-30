@@ -71,3 +71,13 @@ img {
 .accordion-item:open .accordio-content {
      height: 86px;
 }
+
+.glass{
+     position:relative;
+     background: rgba(255, 255, 255, 0.538);
+     box-shadow: 0 25px 45px rgba(0, 0,0, .2);
+     border-radius: 50px;
+     border: 2px solid rgba(255, 255, 255, 0.5);
+     border-right: 2px solid rgba(255, 255, 255, .2);
+     border-bottom: 2px solid rgba(255, 255, 255, .2);
+}
