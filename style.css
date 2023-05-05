@@ -28,7 +28,7 @@ img {
      cursor: pointer;
      position: relative;
      height: 48px;
-     margin-top: 20px;
+     margin-top: 10px;
      font-family: "Comic Sans MS", "Comic Sans";
      font-size: 20px;
      font-weight: bold;
@@ -62,7 +62,7 @@ img {
 
 .accordio-content {
      background-color: rgb(241, 241, 180);
-     margin: 10px;
+     margin: 1%;
 }
 
 .accordio-content p{
