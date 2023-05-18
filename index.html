@@ -49,6 +49,82 @@
     <br>
     </div>
 
+    <div class="glass", style="background: rgba(134, 122, 243, 0.359);">
+      <h1>Integral Visualization</h1>
+
+  <label for="function">Enter a mathematical function:</label>
+  <input type="text" id="function" placeholder="e.g. x^2 + 3" />
+  <br />
+
+  <label for="lower-limit">Enter the lower limit:</label>
+  <input type="number" id="lower-limit" step="any" />
+  <br />
+
+  <label for="upper-limit">Enter the upper limit:</label>
+  <input type="number" id="upper-limit" step="any" />
+  <br />
+
+  <button onclick="visualizeIntegral()">Visualize Integral</button>
+  <br />
+
+  <h3 id="result"></h3>
+
+  <canvas id="canvas"></canvas>
+
+  <script>
+    function visualizeIntegral() {
+      const canvas = document.getElementById('canvas');
+      const ctx = canvas.getContext('2d');
+
+      const functionStr = document.getElementById('function').value;
+      const lowerLimit = parseFloat(document.getElementById('lower-limit').value);
+      const upperLimit = parseFloat(document.getElementById('upper-limit').value);
+
+      const width = canvas.width;
+      const height = canvas.height;
+
+      ctx.clearRect(0, 0, width, height);
+      ctx.beginPath();
+
+      const numPoints = 100;
+      const dx = (upperLimit - lowerLimit) / numPoints;
+
+      let integral = 0;
+
+      for (let i = 0; i < numPoints; i++) {
+        const x1 = lowerLimit + i * dx;
+        const x2 = x1 + dx;
+        const y1 = eval(functionStr.replace(/x/g, x1));
+        const y2 = eval(functionStr.replace(/x/g, x2));
+
+        ctx.moveTo(mapX(x1), mapY(0));
+        ctx.lineTo(mapX(x1), mapY(y1));
+        ctx.lineTo(mapX(x2), mapY(y2));
+
+        integral += (y1 + y2) * dx / 2;
+      }
+
+      ctx.closePath();
+      ctx.fillStyle = 'rgba(0, 0, 255, 0.3)';
+      ctx.fill();
+
+      document.getElementById('result').textContent = `Result: ${integral}`;
+    }
+
+    function mapX(x) {
+      const canvas = document.getElementById('canvas');
+      const width = canvas.width;
+      return (x - lowerLimit) * (width / (upperLimit - lowerLimit));
+    }
+
+    function mapY(y) {
+      const canvas = document.getElementById('canvas');
+      const height = canvas.height;
+      return height - (y * (height / 10));
+    }
+  </script>
+    </div>
+
     <div class="glass", style="background: rgba(17, 161, 228, 0.359);">
       <img
         style="width: 20%; height: auto;"
