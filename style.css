@@ -1,7 +1,14 @@
+
 *{
      padding: 0;
      margin: 1px;
      box-sizing: border-box;
+     
+}
+
+h1{
+     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+     font-weight: 100;
 }
 
 a{
